@@ -1,0 +1,53 @@
+// Code your testbench here
+// or browse Examples
+
+module TestModule;
+  // Inputs
+  reg a;
+  reg b;
+
+  // Outputs
+  wire sum;
+  wire carry;
+
+  // Instantiate the Unit Under Test (UUT)
+  HalfAdder uut (
+  .a(a),
+  .b(b),
+  .sum(sum),
+  .carry(carry)
+  );
+
+  initial begin
+      // Initialize Inputs
+      a = 0;
+      b = 0;
+
+      // Wait 100 ns for global reset to finish
+      #100;
+
+      // Set input values
+      a = 1;
+      b = 0;
+
+      // Wait for some time for outputs to stabilize
+      #10;
+
+      // Display outputs
+      $display("a = %b, b = %b, sum = %b, carry = %b", a, b, sum, carry);
+    
+      // Set input values
+      a = 1;
+      b = 1;
+
+      // Wait for some time for outputs to stabilize
+      #10;
+
+      // Display outputs
+      $display("a = %b, b = %b, sum = %b, carry = %b", a, b, sum, carry);
+
+      // End simulation
+      $finish;
+  end
+
+endmodule
