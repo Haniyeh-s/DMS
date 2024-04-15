@@ -1,0 +1,60 @@
+// // structural model
+
+// module HalfAdder (
+//     input a,
+//     input b,
+//     output sum,
+//     output carry
+// );
+
+//     // XOR gate for sum
+//     xor gate_sum(sum, a, b);
+//     // AND gate for carry
+//     and gate_carry(carry, a, b);
+
+// endmodule
+
+
+// behavioral model
+
+// module HalfAdder (
+//     input a,
+//     input b,
+//     output reg sum, carry
+// );
+
+//   always @(*)
+//     begin 
+//       case ({a,b})
+//         3'b00: sum = 0;
+//         3'b01: sum = 1;
+//         3'b10: sum = 1;
+//         3'b11: sum = 0;
+//         default : sum = 0;
+//       endcase 
+
+//       case ({a,b})
+//         3'b00: carry = 0;
+//         3'b01: carry = 0;
+//         3'b10: carry = 0;
+//         3'b11: carry = 1;
+//         default : carry = 0;
+//       endcase 
+//    end  
+
+// endmodule
+
+
+// Dataflow model
+
+module HalfAdder (
+    input a,
+    input b,
+    output sum,
+    output carry
+);
+
+    assign sum = a ^ b; // Sum is XOR of inputs
+    assign carry = a & b; // Carry is AND of inputs
+
+endmodule
